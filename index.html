@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits of the Tropics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #f28c28;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffdd75;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Tropical Fruits World</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="benefits.html">Health Benefits</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+
+    <!-- Main Page (Home) -->
+    <div class="content" id="home">
+        <h2>Discover the Wonders of Tropical Fruits</h2>
+        <p>Tropical fruits are nature's gift, bursting with unique flavors and nutrients. From sweet mangoes to tangy pineapples, there's so much to explore.</p>
+        <p>These fruits are not only delicious but also packed with vitamins, antioxidants, and other essential nutrients that support a healthy lifestyle.</p>
+    </div>
+
+    <!-- Health Benefits Page -->
+    <div class="content" id="benefits" style="display:none;">
+        <h2>Health Benefits of Tropical Fruits</h2>
+        <ul>
+            <li><b>Mangoes:</b> Rich in Vitamin A, great for skin and eye health.</li>
+            <li><b>Pineapples:</b> Contains bromelain, aids digestion.</li>
+            <li><b>Bananas:</b> High in potassium, supports heart health.</li>
+            <li><b>Passion fruit:</b> High in dietary fiber, promotes gut health.</li>
+        </ul>
+    </div>
+
+    <!-- Gallery Page -->
+    <div class="content" id="gallery" style="display:none;">
+        <h2>Tropical Fruit Gallery</h2>
+        <p>Browse through our collection of vibrant tropical fruit photos. Click on any image to enlarge it.</p>
+        <div class="gallery">
+            <img src="tropical-fruit1.jpg" alt="Mango">
+            <img src="tropical-fruit2.jpg" alt="Pineapple">
+            <img src="tropical-fruit3.jpg" alt="Banana">
+            <img src="tropical-fruit4.jpg" alt="Passion Fruit">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Tropical Fruits World | All Rights Reserved
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const pages = document.querySelectorAll('.content');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const targetPage = event.target.getAttribute('href').replace('.html', '');
+
+                pages.forEach(page => {
+                    page.style.display = page.id === targetPage ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
